@@ -1,0 +1,94 @@
+.topbar {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.topbar-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: #171e25;
+}
+
+
+.back-btn {
+  background: #dbeafe !important;  
+  color: #1e40af !important; 
+  border-radius: 6px;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+}
+
+.back-btn:hover {
+  background: #bfdbfe;  
+}
+
+
+.logout-btn {
+  background: #fee2e2;   
+  color: #b91c1c !important ; 
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.back-btn:hover {
+  background: #394657;
+  color: #ffffff !important;
+}
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-section {
+  margin-bottom: 2rem;
+}
+
+.list-heading {
+  margin: 2rem 0;
+  font-size: 1.25rem;
+}
+
+.list-container {
+  padding: 0 !important;
+}
+
+.list-container > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.list-item-container {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+  border: 1px solid #e4e9f0;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dept-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.dept-desc {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+app-loading-spinner,
+app-error-block,
+app-empty-state {
+  margin-top: 12%;
+}

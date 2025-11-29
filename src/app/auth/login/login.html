@@ -1,0 +1,59 @@
+<main class="login-container">
+  <header>
+    <h2>Login</h2>
+  </header>
+
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-field-container">
+      <label for="email" class="email">Email <span class="required-asterisk">*</span></label>
+      <mat-form-field appearance="outline">
+        <input
+          id="email"
+          matInput
+          formControlName="email"
+          type="email"
+          placeholder="Enter your email"
+          floatLabel="auto"
+        />
+        @if (loginForm.get('email')?.hasError('required')) {
+          <mat-error>
+             Email is required
+          </mat-error>
+        } @else if (loginForm.get('email')?.hasError('email')) {
+          <mat-error
+            > Enter a valid
+            email
+          </mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="form-field-container">
+      <label for="password" class="password">Password <span class="required-asterisk">*</span></label>
+      <mat-form-field appearance="outline">
+        <input
+          id="password"
+          matInput
+          formControlName="password"
+          type="password"
+          placeholder="Enter your password"
+        />
+        @if (loginForm.get('password')?.hasError('required')) {
+          <mat-error
+            > Password is
+            required
+          </mat-error>
+        } @else if (loginForm.get('password')?.hasError('minlength')) {
+          <mat-error
+            > Password must be
+            at least 6 characters
+          </mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <button matButton="filled" type="submit" class="login-btn" [disabled]="isSubmitting()">
+      Log in
+    </button>
+  </form>
+</main>

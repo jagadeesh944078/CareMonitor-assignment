@@ -1,0 +1,36 @@
+<header class="topbar">
+  <nav class="topbar-nav-container">
+    <button matButton class="back-btn" type="button" (click)="goToDashboard()">
+    Back to Dashboard
+    </button>
+    <h1 class="app-heading">Department Overview</h1>
+    <button matButton class="logout-btn" type="button" (click)="onLogout()">
+       Logout
+    </button>
+  </nav>
+</header>
+
+<main class="main-page">
+  @if (store.isLoading()) {
+    <app-loading-spinner></app-loading-spinner>
+  } @else if (!store.isLoading() && !store.error() && store.departments().length === 0) {
+    <app-empty-state
+      [title]="'No data available'"
+      [subtitle]="'Please add some items to get started.'"
+    ></app-empty-state>
+  } @else if (!store.isLoading() && !store.error() && store.departments().length) {
+    <section class="list-section">
+      <h3 class="list-heading">Available Departments</h3>
+      <mat-list class="list-container">
+        @for (dept of store.departments(); track dept.id) {
+          <mat-list-item class="list-item-container">
+            <div mat-line class="dept-name">{{ dept.name }}</div>
+            <div mat-line class="dept-desc">{{ dept.description }}</div>
+          </mat-list-item>
+        }
+      </mat-list>
+    </section>
+  } @else if (!store.isLoading() && store.error()) {
+    <app-error-block></app-error-block>
+  }
+</main>

@@ -1,0 +1,22 @@
+<header class="topbar">
+  <nav class="topbar-nav-container">
+    <h1 class="app-heading">Dashboard</h1>
+    <div class="nav-actions">
+     <button matButton="filled" class="goto-list-btn" type="button" (click)="goToDepartments()">
+         View Medical Departments
+      </button>
+    <button matButton class="logout-btn" type="button" (click)="onLogout()">
+      Logout
+    </button>
+    </div>
+  </nav>
+</header>
+
+<main class="main-page">
+  <section class="hero-section">
+    <h2 class="hero-title">Dashboard Home</h2>
+    <p class="hero-subtitle">
+      Logged in email: <strong>{{ userEmail }}</strong>
+    </p>
+  </section>
+</main>

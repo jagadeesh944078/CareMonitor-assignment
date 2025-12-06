@@ -3,10 +3,12 @@ import { LogInComponent } from './auth/login/login';
 import { DashboardComponent } from './dashboard/dashboard';
 import { NotFoundComponent } from './not-found/not-found';
 import { AuthGuard } from './core/guards/auth.guard';
+import { FormPageComponent } from './form-page/form-page';
 
 export const routes: Routes = [
   { path: 'login', component: LogInComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'form', component: FormPageComponent, canActivate: [AuthGuard] },
   {
     path: 'list',
     canActivate: [AuthGuard],

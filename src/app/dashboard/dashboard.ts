@@ -29,4 +29,8 @@ export class DashboardComponent implements OnInit {
   goToDepartments(): void {
     this.router.navigate(['/list']);
   }
+
+  goToForm(): void {
+    this.router.navigate(['/form']);
+  }
 }

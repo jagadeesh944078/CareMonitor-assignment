@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div *ngFor="let field of config" style="margin-bottom: 16px">
+    <app-custom-input
+      [label]="field.label"
+      [type]="field.type"
+      [placeholder]="field.placeholder"
+      [options]="field.options"
+      [errors]="field.errorMessages"
+      [control]="form.get(field.formControlName)"
+      formControlName="{{ field.formControlName }}"
+    ></app-custom-input>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

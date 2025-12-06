@@ -2,12 +2,13 @@
   <nav class="topbar-nav-container">
     <h1 class="app-heading">Dashboard</h1>
     <div class="nav-actions">
-     <button matButton="filled" class="goto-list-btn" type="button" (click)="goToDepartments()">
-         View Medical Departments
+      <button matButton="filled" class="goto-list-btn" type="button" (click)="goToDepartments()">
+        View Medical Departments
       </button>
-    <button matButton class="logout-btn" type="button" (click)="onLogout()">
-      Logout
-    </button>
+      <button matButton="filled" class="goto-form-btn" type="button" (click)="goToForm()">
+        Go to Form
+      </button>
+      <button matButton class="logout-btn" type="button" (click)="onLogout()">Logout</button>
     </div>
   </nav>
 </header>

@@ -2,36 +2,40 @@
   <label>{{ label }}</label>
 
   <!-- TEXT INPUT -->
-  <input
-    *ngIf="type === 'text'"
-    type="text"
-    class="form-control"
-    [class.invalid]="control?.invalid && control?.touched"
-    [placeholder]="placeholder"
-    [disabled]="disabled"
-    [value]="value"
-    (input)="handleInput($event)"
-    (blur)="onTouched()"
-  />
+  @if (type === 'text') {
+    <input
+      type="text"
+      class="form-control"
+      [class.invalid]="control?.invalid && control?.touched"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [value]="value"
+      (input)="handleInput($event)"
+      (blur)="onTouched()"
+    />
+  }
 
   <!-- SELECT INPUT -->
-  <select
-    *ngIf="type === 'select'"
-    class="form-control"
-    [class.invalid]="control?.invalid && control?.touched"
-    [disabled]="disabled"
-    [value]="value"
-    (change)="handleInput($event)"
-    (blur)="onTouched()"
-  >
-    <option value="">Select...</option>
-    <option *ngFor="let opt of options" [value]="opt.value">
-      {{ opt.label }}
-    </option>
-  </select>
+  @if (type === 'select') {
+    <select
+      class="form-control"
+      [class.invalid]="control?.invalid && control?.touched"
+      [disabled]="disabled"
+      [value]="value"
+      (change)="handleInput($event)"
+      (blur)="onTouched()"
+    >
+      <option value="">Select...</option>
+      @for (opt of options; track opt) {
+        <option [value]="opt.value">{{ opt.label }}</option>
+      }
+    </select>
+  }
 
   <!-- ERROR MESSAGE -->
-  <div *ngIf="showError" class="error-message">
-    {{ errorMessage }}
-  </div>
+  @if (showError) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  }
 </div>

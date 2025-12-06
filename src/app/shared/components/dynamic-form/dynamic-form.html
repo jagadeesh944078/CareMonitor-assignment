@@ -1,15 +1,19 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div *ngFor="let field of config" style="margin-bottom: 16px">
-    <app-custom-input
-      [label]="field.label"
-      [type]="field.type"
-      [placeholder]="field.placeholder"
-      [options]="field.options"
-      [errors]="field.errorMessages"
-      [control]="form.get(field.formControlName)"
-      formControlName="{{ field.formControlName }}"
-    ></app-custom-input>
-  </div>
+<div class="form-wrapper">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    @for (field of config; track field.formControlName) {
+      <div style="margin-bottom: 16px">
+        <app-custom-input
+          [label]="field.label"
+          [type]="field.type"
+          [placeholder]="field.placeholder ?? ''"
+          [options]="field.options ?? []"
+          [errors]="field.errorMessages"
+          [control]="form.get(field.formControlName)"
+          [formControlName]="field.formControlName"
+        ></app-custom-input>
+      </div>
+    }
 
-  <button type="submit">Submit</button>
-</form>
+    <button matButton="filled" class="goto-form-btn" type="submit">Submit</button>
+  </form>
+</div>

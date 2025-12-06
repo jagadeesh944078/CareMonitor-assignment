@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
   ],
 })
 export class CustomInputComponent implements ControlValueAccessor {
-  @Input() type: 'text' | 'select' = 'text';
+  @Input() type: string = '';
   @Input() placeholder = '';
   @Input() label = '';
   @Input() options: { label: string; value: string }[] = [];
